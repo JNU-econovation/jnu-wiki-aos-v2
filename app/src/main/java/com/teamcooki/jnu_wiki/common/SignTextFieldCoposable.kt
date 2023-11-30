@@ -1,16 +1,16 @@
 package com.teamcooki.jnu_wiki.common
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.teamcooki.jnu_wiki.R
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignTextField(
     title: String,
@@ -33,53 +32,57 @@ fun SignTextField(
     visible: Boolean? = null,
     changeVisible: () -> Unit = {}
 ) {
-    Text(
-        text = title,
-        color = colorResource(id = R.color.main_color_bright),
-        fontSize = 16.sp
-    )
-    Spacer(modifier = Modifier.height(8.dp))
+    Column {
+        Text(
+            text = title,
+            color = colorResource(id = R.color.main_color_bright),
+            fontSize = 16.sp
+        )
+        Spacer(modifier = Modifier.height(8.dp))
 
-    OutlinedTextField(
-        value = text,
-        onValueChange = {
-            onChange
-        },
-        colors = TextFieldDefaults.textFieldColors(
-            cursorColor = colorResource(id = R.color.main_color_bright),
-            focusedIndicatorColor = colorResource(id = R.color.main_color_bright)
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(48.dp),
-        shape = RoundedCornerShape(8.dp),
-        placeholder = {
-            Text(
-                text = captionText,
-                color = colorResource(id = R.color.placeholder_color),
-                fontSize = 14.sp
-            )
-        },
-        visualTransformation = if (visible == null || visible) VisualTransformation.None else PasswordVisualTransformation(),
-        trailingIcon = {
-            if (visible != null) {
-                val image = if (visible)
-                    R.drawable.visible_icon
-                else R.drawable.visible_off_icon
+        OutlinedTextField(
+            value = text,
+            onValueChange = {
+                onChange(it)
+            },
+            colors = TextFieldDefaults.textFieldColors(
+                cursorColor = colorResource(id = R.color.main_color_bright),
+                focusedIndicatorColor = colorResource(id = R.color.main_color_bright),
+                backgroundColor = colorResource(id = R.color.jnu_main_background_color)
 
-                val description =
-                    if (visible) stringResource(R.string.content_description_hide_pw)
-                    else stringResource(R.string.content_description_show_pw)
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp),
+            shape = RoundedCornerShape(8.dp),
+            placeholder = {
+                Text(
+                    text = captionText,
+                    color = colorResource(id = R.color.placeholder_color),
+                    fontSize = 14.sp
+                )
+            },
+            visualTransformation = if (visible == null || visible) VisualTransformation.None else PasswordVisualTransformation(),
+            trailingIcon = {
+                if (visible != null) {
+                    val image = if (visible)
+                        R.drawable.visible_icon
+                    else R.drawable.visible_off_icon
 
-                IconButton(onClick = changeVisible) {
-                    Icon(
-                        painter = painterResource(id = image),
-                        contentDescription = description,
-                    )
+                    val description =
+                        if (visible) stringResource(R.string.content_description_hide_pw)
+                        else stringResource(R.string.content_description_show_pw)
+
+                    IconButton(onClick = changeVisible) {
+                        Icon(
+                            painter = painterResource(id = image),
+                            contentDescription = description,
+                        )
+                    }
                 }
-            }
-        },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-        singleLine = true,
-    )
+            },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+            singleLine = true,
+        )
+    }
 }
