@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Jnu_Wiki</string>
     <string name="title_activity_sign">SignActivity</string>
+    <string name="content_description_back_btn">뒤로가기</string>
 </resources>
