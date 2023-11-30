@@ -1,4 +1,4 @@
-package com.teamcooki.jnu_wiki.ui.theme
+package com.teamcooki.jnu_wiki.sign.ui.theme
 
 import android.app.Activity
 import android.os.Build

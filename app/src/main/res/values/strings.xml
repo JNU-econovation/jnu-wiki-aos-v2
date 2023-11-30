@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Jnu_Wiki</string>
+    <string name="title_activity_sign">SignActivity</string>
 </resources>

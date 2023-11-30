@@ -1,4 +1,4 @@
-package com.teamcooki.jnu_wiki.ui.theme
+package com.teamcooki.jnu_wiki.home.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
