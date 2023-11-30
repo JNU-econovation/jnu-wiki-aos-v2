@@ -2,4 +2,14 @@
     <string name="app_name">Jnu_Wiki</string>
     <string name="title_activity_sign">SignActivity</string>
     <string name="content_description_back_btn">뒤로가기</string>
+    <string name="login_text">로그인</string>
+    <string name="login_welcome_text">환영해요! 오늘도 전남대 정보들, 잘 부탁해요 :)</string>
+    <string name="content_description_hide_pw">비밀번호 숨기기</string>
+    <string name="content_description_show_pw">비밀번호 표시</string>
+    <string name="email_text">이메일</string>
+    <string name="sign_caption_email_text">이메일을 입력하세요.</string>
+    <string name="sign_caption_pw_text">비밀번호를 입력하세요.</string>
+    <string name="pw_text">비밀번호</string>
+    <string name="registe_question_text">계정이 없으신가요?</string>
+    <string name="registe_text">회원가입</string>
 </resources>

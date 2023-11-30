@@ -11,4 +11,7 @@
     <color name="jnu_main_color">#FF216D32</color>
     <color name="placeholder_color">#ABABAB</color>
     <color name="main_color_bright">#3F8E49</color>
+    <color name="jnu_main_text_color">#000000</color>
+    <color name="jnu_main_reverse_text_color">#ffffff</color>
+    <color name="jnu_main_background_color">#FFFFFF</color>
 </resources>
